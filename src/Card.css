@@ -1,28 +1,45 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-
-}
-.card-container > h6{
-  color: blue;
-}
-
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card-container {
   margin: 20px;
-
+  border: 10px solid black;
+  transition: box-shadow 0.3s ease;
 }
+.card {
+  width: 18rem; /* Adjust as needed, e.g., width: 80%; for 80% of the viewport width */
+  height: auto;
+}
+.card > img {
+  padding: 0px;
+  background-color: black;
+}
+.my-video {
+  width: 100%;
+  height: auto;
+}
+.btn{
+  background-color: black;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+.card-container .card .card-body h6 {
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card-container .card .card-text  {
+  text-align: justify;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .card-container:hover {
   box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  transform: scale(1.02);
 }
+

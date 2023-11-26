@@ -1,9 +1,32 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import React, { useEffect, useRef } from 'react';
 import './Card.css';
 import './App.css';
 
 function App() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const playVideo = () => {
+      videoRef.current.play().catch(error => {
+        // Handle the error gracefully
+        console.log('Video playback failed:', error);
+      });
+    };
+
+    const handleInteraction = () => {
+      document.removeEventListener('click', handleInteraction);
+      playVideo();
+    };
+
+    document.addEventListener('click', handleInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+    };
+  }, []);
+
   const movies = [
     {
       img: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTBPzUJ7U4v5kL4jXEowJ0d60Y7JeEAw4VQW8PfQR9zPDgLOjY_",
@@ -13,7 +36,7 @@ function App() {
       link:"https://www.hotstar.com/in/movies/iron-man/1660000038/watch?filters=content_type%3Dmovie&is_paywall_onboarding=true"
     },
     {
-      img: 'https://resizing.flixster.com/odSWHNjwFp9h_Ls8gQ0Fr6LXqo4=/206x305/v2/https://flxt.tmsimg.com/assets/p176337_p_v8_am.jpg',
+      img: 'https://resizing.flixster.com/odSWHNjwFp9h_Ls8gQ0Fr6LXqo4=/206x305/v2/https://flxt.tmsimg.com/assets/p176337_p_v8_am.jpg', 
       title: 'THE INCREDIBLE HULK',
       heading: '2008, Action/Adventure, 1h 52m',
       text: "The Incredible Hulk may not be quite the smashing success that fans of Marvel's raging behemoth might hope for, but it offers more than enough big green action to make up for its occasionally puny narrative.",
@@ -293,7 +316,7 @@ function App() {
 
   const ListItems = movies.map((props, index) => (
     <div key={index} className="card-container">
-      <Card style={{ width: '18rem' }}>
+      <Card >
         <Card.Img variant="top" src={props.img} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
@@ -303,7 +326,7 @@ function App() {
           </Card.Text>
           {props.link && (
             <a href={props.link}>
-              <Button variant="primary">Watch Now</Button>
+              <Button >Watch Now</Button>
             </a>
           )}        </Card.Body>
       </Card>
@@ -312,8 +335,15 @@ function App() {
 
   return (
     <div className="App">
-      <h4>Marvel movies in order: how to watch all mcu movies and series chronologically</h4>
-      <p>We have compiled a comprehensive guide listing all the Marvel Cinematic Universe (MCU) movies and series in chronological order, beginning with the World War II-era film, Captain America: The First Avenger.</p>
+      <h2>MCU</h2>
+      <h1>Marvel Cinematic Universe</h1>
+      <p>I've compiled a detailed guide that lists all Marvel Cinematic Universe (MCU) movies and series chronologically, commencing with the World War II-era film Captain America: The First Avenger.</p>
+      <div className="video-container">
+        <video ref={videoRef} controls autoPlay muted className="video-element">
+          <source src={require('./video.mp4')} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <div className="list-items-container">{ListItems}</div>
     </div>
   );

@@ -1,19 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Poppins&display=swap');
 .App {
   text-align: center;
+  width: 100;
+  background-color: black;
 }
-.App >h4{
-   padding: 10px;
-   color: navy;
+.App > h2 {
+ padding: 10px;
+ font-size: 80px;
+ font-family: 'Oswald', sans-serif;
+font-family: 'Poppins', sans-serif;
+color: #cdffcd;
 }
-.App > p{
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 18px;
-  padding:10px 100px 20px 100px;
+.App > h1 {
+  padding: 10px;
+  color: azure;
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.App > p {
+  text-align:center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  padding: 10px 100px 20px 100px;
+  color: azure;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 .list-items-container {
   display: flex;
   flex-wrap: wrap;
@@ -25,32 +42,120 @@
   margin: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (change this value based on your video's aspect ratio) */
+  overflow: hidden; /* Hide the scrollbar */
+}
+
+.video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .App > h1 {
+    padding: 10px;
+    color: azure;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px; /* Adjust font size for extra small devices */
+  }
+
+  .App > p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; /* Adjust font size for extra small devices */
+    padding: 10px 20px 20px 20px;
+    color: azure;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .App > h1 {
+    padding: 10px;
+    color: azure;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px; /* Adjust font size for small devices */
   }
-  to {
-    transform: rotate(360deg);
+
+  .App > p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px; /* Adjust font size for small devices */
+    padding: 10px 100px 20px 100px;
+    color: azure;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .App > h1 {
+    padding: 10px;
+    color: azure;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px; /* Adjust font size for medium devices */
+  }
+
+  .App > p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px; /* Adjust font size for medium devices */
+    padding: 10px 120px 20px 120px;
+    color: azure;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .App > h1 {
+    padding: 10px;
+    color: azure;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px; /* Adjust font size for large devices */
+  }
+
+  .App > p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px; /* Adjust font size for large devices */
+    padding: 10px 140px 20px 140px;
+    color: azure;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .App > h1 {
+    padding: 10px;
+    color:#FAF6C9;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px; /* Adjust font size for extra large devices */
+  }
+
+  .App > p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px; /* Adjust font size for extra large devices */
+    padding: 10px 160px 20px 160px;
+    color: azure;
+  }
+}
+
+@media screen and (min-width: 30px) and (max-width: 600px) {
+  .card {
+    width: 48%; /* Display two cards in a row */
+    margin: 1%; /* Adjust as needed for spacing between cards */
   }
 }
